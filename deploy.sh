@@ -57,7 +57,7 @@ then
 fi
 
 ## 将打包后的文件发送给服务器
-ssh -p2222 root@${IP} "cd ${SERVER_PATH}/${PROJECT} && (cd $OUTPUT_PATH && rm -rf $REMOVE_FILES || mkdir $OUTPUT_PATH)"
+ssh -p2222 root@${IP} "cd ${SERVER_PATH} && if [ ! -d $PROJECT ]; then mkdir $PROJECT; fi && cd $PROJECT && if [ ! -d $OUTPUT_PATH ]; then mkdir $OUTPUT_PATH; fi && cd $OUTPUT_PATH && rm -rf $REMOVE_FILES"
 cd $OUTPUT_PATH
 scp -P2222 -rp $SCP_FILES root@${IP}:${SERVER_PATH}/${PROJECT}/${OUTPUT_PATH#./}
 exit
