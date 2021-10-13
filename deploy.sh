@@ -14,7 +14,7 @@ REMOVE_FILES=""
 ## 存储旧打包文件
 if [ -d $OUTPUT_PATH ]
 then
-  mv $OUTPUT_PATH "${OUTPUT_PATH}_old"
+  cp -r $OUTPUT_PATH "${OUTPUT_PATH}_old"
   for file in `ls ${OUTPUT_PATH}_old`
     do
       if [[ -f "${OUTPUT_PATH}_old/${file}" && ${file} != $ENTER_FILE ]]
