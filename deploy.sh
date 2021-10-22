@@ -27,7 +27,7 @@ fi
 ## 开始代码打包
 #rm -rf node_modules
 #rm -rf package-lock.json
-pnpm i
+pnpm i --no-frozen-lockfile
 pnpm run build
 
 ## 在新打包文件中查找需要上传的文件
